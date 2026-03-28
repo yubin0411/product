@@ -183,6 +183,12 @@ h2 {
     transform: translateY(1px);
 }
 
+.ad-container {
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+}
+
 #disqus-section {
     text-align: left;
 }
