@@ -31,6 +31,26 @@
             <button type="submit" class="submit-btn">문의 보내기</button>
         </form>
     </div>
+
+    <div class="container" id="disqus-section">
+        <h2>댓글</h2>
+        <div id="disqus_thread"></div>
+    </div>
+
+    <script>
+        var disqus_config = function () {
+            this.page.url = window.location.href;
+            this.page.identifier = window.location.pathname;
+        };
+        (function() {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://yubin-test1.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>댓글을 보려면 JavaScript를 활성화해주세요.</noscript>
+
     <script src="main.js"></script>
 </body>
 </html>

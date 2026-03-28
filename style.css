@@ -29,13 +29,15 @@ body {
     background-color: var(--background-color);
     color: var(--text-color);
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
     min-height: 100vh;
     margin: 0;
     padding: 40px 20px;
     font-family: 'Arial', sans-serif;
     transition: background-color 0.3s ease, color 0.3s ease;
+    gap: 30px;
 }
 
 #theme-toggle {
@@ -179,4 +181,12 @@ h2 {
 
 .submit-btn:active {
     transform: translateY(1px);
+}
+
+#disqus-section {
+    text-align: left;
+}
+
+#disqus_thread {
+    min-height: 200px;
 }
