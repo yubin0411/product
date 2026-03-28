@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>동물상 테스트 - 나는 강아지상? 고양이상? | LottoGen</title>
+    <meta name="description" content="AI가 분석하는 동물상 테스트! 카메라나 사진으로 나의 동물상이 강아지상인지 고양이상인지 확인해보세요.">
+    <meta name="keywords" content="동물상테스트, 강아지상, 고양이상, AI동물상, 얼굴테스트, 관상테스트">
+    <meta property="og:title" content="동물상 테스트 - 나는 강아지상? 고양이상?">
+    <meta property="og:description" content="AI가 분석하는 동물상 테스트! 내 얼굴은 강아지상일까 고양이상일까?">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animal-test.css">
+    <meta name="google-adsense-account" content="ca-pub-3569090196286004">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3569090196286004"
+         crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+</head>
+<body>
+    <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+
+    <nav class="navbar">
+        <a href="index.html" class="nav-logo">LottoGen</a>
+        <div class="nav-links">
+            <a href="index.html">홈</a>
+            <a href="animal-test.html" class="active">동물상 테스트</a>
+            <a href="guide.html">로또 가이드</a>
+            <a href="about.html">소개</a>
+        </div>
+    </nav>
+
+    <div class="container content-page">
+        <h1>동물상 테스트</h1>
+        <p class="intro-text">AI가 당신의 얼굴을 분석하여 강아지상인지 고양이상인지 알려드립니다!</p>
+
+        <div class="test-area">
+            <div id="preview-container" class="preview-container">
+                <div id="placeholder" class="placeholder">
+                    <span class="placeholder-icon">📷</span>
+                    <p>사진을 업로드하거나 카메라를 사용해주세요</p>
+                </div>
+                <img id="preview-image" class="preview-image" style="display:none;" alt="업로드된 사진">
+                <video id="webcam-video" class="preview-image" style="display:none;" autoplay playsinline></video>
+                <canvas id="capture-canvas" style="display:none;"></canvas>
+            </div>
+
+            <div class="button-group">
+                <label class="action-btn upload-btn">
+                    사진 업로드
+                    <input type="file" id="file-input" accept="image/*" hidden>
+                </label>
+                <button id="webcam-btn" class="action-btn webcam-btn">카메라 촬영</button>
+            </div>
+            <button id="capture-btn" class="action-btn capture-btn" style="display:none;">촬영하기</button>
+            <button id="analyze-btn" class="action-btn analyze-btn" style="display:none;">분석하기</button>
+        </div>
+
+        <div id="loading" class="loading" style="display:none;">
+            <div class="spinner"></div>
+            <p>AI가 분석 중입니다...</p>
+        </div>
+
+        <div id="result" class="result-area" style="display:none;">
+            <div class="result-card">
+                <div id="result-emoji" class="result-emoji"></div>
+                <h2 id="result-title" class="result-title"></h2>
+                <div class="result-bars">
+                    <div class="bar-group">
+                        <div class="bar-label">
+                            <span>강아지상</span>
+                            <span id="dog-percent">0%</span>
+                        </div>
+                        <div class="bar-track">
+                            <div id="dog-bar" class="bar-fill dog-bar"></div>
+                        </div>
+                    </div>
+                    <div class="bar-group">
+                        <div class="bar-label">
+                            <span>고양이상</span>
+                            <span id="cat-percent">0%</span>
+                        </div>
+                        <div class="bar-track">
+                            <div id="cat-bar" class="bar-fill cat-bar"></div>
+                        </div>
+                    </div>
+                </div>
+                <p id="result-description" class="result-description"></p>
+                <button id="retry-btn" class="action-btn retry-btn">다시 테스트하기</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="ad-container">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-3569090196286004"
+             data-ad-slot="auto"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <div class="container content-page">
+        <h2>동물상이란?</h2>
+        <section class="content-section">
+            <p>동물상은 사람의 얼굴 생김새에서 특정 동물의 이미지를 떠올리는 것으로, 한국에서 인기 있는 관상 분류법입니다. 대표적으로 강아지상과 고양이상이 있으며, 각각 고유한 인상과 매력을 가지고 있습니다.</p>
+        </section>
+
+        <section class="content-section">
+            <h3>강아지상의 특징</h3>
+            <ul>
+                <li><strong>눈:</strong> 크고 동그란 눈, 순한 눈빛</li>
+                <li><strong>얼굴형:</strong> 둥글고 부드러운 얼굴 라인</li>
+                <li><strong>인상:</strong> 친근하고 다정한 느낌, 편안한 미소</li>
+                <li><strong>성격 이미지:</strong> 활발하고 사교적, 애교가 많은 스타일</li>
+                <li><strong>대표 연예인:</strong> 박보영, 강다니엘, 차은우</li>
+            </ul>
+        </section>
+
+        <section class="content-section">
+            <h3>고양이상의 특징</h3>
+            <ul>
+                <li><strong>눈:</strong> 날카롭고 길쭉한 눈매, 올라간 눈꼬리</li>
+                <li><strong>얼굴형:</strong> 갸름하고 각진 얼굴 라인</li>
+                <li><strong>인상:</strong> 도도하고 시크한 느낌, 카리스마 있는 분위기</li>
+                <li><strong>성격 이미지:</strong> 독립적이고 차분한, 미스터리한 스타일</li>
+                <li><strong>대표 연예인:</strong> 제니, 한소희, 이동욱</li>
+            </ul>
+        </section>
+
+        <section class="content-section">
+            <h3>테스트 안내</h3>
+            <p>본 테스트는 Google Teachable Machine AI 모델을 활용한 재미 위주의 테스트입니다. 결과는 참고용이며, 실제 관상 분석과는 다를 수 있습니다. 가볍게 즐겨주세요!</p>
+        </section>
+    </div>
+
+    <div class="ad-container">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-3569090196286004"
+             data-ad-slot="auto"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <div class="container" id="disqus-section">
+        <h2>테스트 결과 공유</h2>
+        <p class="subtitle">내 동물상 결과를 공유하고 친구들과 비교해보세요!</p>
+        <div id="disqus_thread"></div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="index.html">홈</a>
+                <a href="animal-test.html">동물상 테스트</a>
+                <a href="guide.html">로또 가이드</a>
+                <a href="about.html">소개</a>
+                <a href="privacy.html">개인정보처리방침</a>
+            </div>
+            <p class="footer-copy">&copy; 2026 LottoGen. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        var disqus_config = function () {
+            this.page.url = window.location.href;
+            this.page.identifier = 'animal-test';
+        };
+        (function() {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://yubin-test1.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>댓글을 보려면 JavaScript를 활성화해주세요.</noscript>
+
+    <script src="main.js"></script>
+    <script src="animal-test.js"></script>
+</body>
+</html>
