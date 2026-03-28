@@ -1,10 +1,14 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lotto Number Generator</title>
+    <title>로또번호 생성기 - 무료 로또 6/45 번호 추천 | LottoGen</title>
+    <meta name="description" content="무료 로또 번호 생성기! 버튼 하나로 로또 6/45 번호를 무작위 생성하세요. 당첨 확률, 로또 가이드, 번호 선택 전략까지 한눈에 확인하세요.">
+    <meta name="keywords" content="로또, 로또번호, 로또번호생성기, 로또6/45, 로또번호추천, 무료로또, 로또당첨">
+    <meta property="og:title" content="로또번호 생성기 - 무료 로또 6/45 번호 추천">
+    <meta property="og:description" content="무료 로또 번호 생성기! 버튼 하나로 로또 6/45 번호를 무작위 생성하세요.">
+    <meta property="og:type" content="website">
     <link rel="stylesheet" href="style.css">
     <meta name="google-adsense-account" content="ca-pub-3569090196286004">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3569090196286004"
@@ -12,8 +16,20 @@
 </head>
 <body>
     <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+
+    <nav class="navbar">
+        <a href="index.html" class="nav-logo">LottoGen</a>
+        <div class="nav-links">
+            <a href="index.html" class="active">홈</a>
+            <a href="guide.html">로또 가이드</a>
+            <a href="about.html">소개</a>
+            <a href="privacy.html">개인정보처리방침</a>
+        </div>
+    </nav>
+
     <div class="container">
-        <h1>Lotto Number Generator</h1>
+        <h1>로또 번호 생성기</h1>
+        <p class="subtitle">1~45 사이의 무작위 번호 6개를 생성합니다. 버튼을 눌러보세요!</p>
         <div class="lotto-numbers">
             <span class="number"></span>
             <span class="number"></span>
@@ -22,27 +38,37 @@
             <span class="number"></span>
             <span class="number"></span>
         </div>
-        <button id="generate">Generate Numbers</button>
+        <button id="generate">번호 생성하기</button>
+    </div>
 
-        <hr class="divider">
-
-        <div class="ad-container">
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-3569090196286004"
-                 data-ad-slot="auto"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-        </div>
-
-        <h2>제휴 문의</h2>
-        <form action="https://formspree.io/f/maqlewnd" method="POST" class="contact-form">
-            <input type="text" name="name" placeholder="이름 / 회사명" required>
-            <input type="email" name="email" placeholder="이메일" required>
-            <textarea name="message" placeholder="문의 내용을 입력해주세요" rows="4" required></textarea>
-            <button type="submit" class="submit-btn">문의 보내기</button>
-        </form>
+    <div class="container content-page">
+        <h2>로또 번호 생성기 사용법</h2>
+        <section class="content-section">
+            <p>LottoGen의 로또 번호 생성기는 완전한 무작위 알고리즘을 사용하여 편향 없는 번호 조합을 만들어 드립니다.</p>
+            <div class="how-to-use">
+                <div class="step">
+                    <span class="step-number">1</span>
+                    <div>
+                        <h3>번호 생성</h3>
+                        <p>"번호 생성하기" 버튼을 클릭하면 1~45 사이의 중복 없는 6개 번호가 자동으로 생성됩니다.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <div>
+                        <h3>번호 확인</h3>
+                        <p>생성된 번호는 오름차순으로 정렬되어 표시됩니다. 마음에 들지 않으면 다시 생성할 수 있습니다.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <span class="step-number">3</span>
+                    <div>
+                        <h3>번호 활용</h3>
+                        <p>마음에 드는 번호 조합을 메모한 후 로또 판매점이나 동행복권 사이트에서 구매하세요.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 
     <div class="ad-container">
@@ -55,10 +81,82 @@
         <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
 
+    <div class="container content-page">
+        <h2>왜 무작위 번호를 사용해야 할까요?</h2>
+        <section class="content-section">
+            <p>많은 사람들이 생일, 기념일, 행운의 숫자 등 개인적인 의미가 있는 번호를 선택합니다. 하지만 이 방식에는 몇 가지 문제가 있습니다.</p>
+            <ul>
+                <li><strong>번호 편중 현상:</strong> 생일이나 기념일은 대부분 1~31 범위에 집중되어 있어, 32~45 사이의 번호가 누락되기 쉽습니다.</li>
+                <li><strong>중복 선택 위험:</strong> 같은 숫자를 반복적으로 선택하게 되어 다양한 조합을 시도하기 어렵습니다.</li>
+                <li><strong>당첨금 분배:</strong> 인기 있는 번호(예: 7, 11, 13 등)를 많은 사람이 선택하면, 당첨 시 나눠야 하는 인원이 많아져 개인 당첨금이 줄어들 수 있습니다.</li>
+            </ul>
+            <p>무작위 번호 생성기를 사용하면 이러한 편향을 제거하고, 모든 번호 범위에서 고르게 조합을 만들 수 있습니다.</p>
+        </section>
+    </div>
+
+    <div class="container content-page">
+        <h2>로또 6/45 간단 요약</h2>
+        <section class="content-section">
+            <div class="info-cards">
+                <div class="info-card">
+                    <h3>추첨 일시</h3>
+                    <p>매주 토요일 오후 8시 45분 MBC 생방송</p>
+                </div>
+                <div class="info-card">
+                    <h3>1게임 가격</h3>
+                    <p>1,000원 (한 장당 최대 5게임)</p>
+                </div>
+                <div class="info-card">
+                    <h3>1등 확률</h3>
+                    <p>8,145,060분의 1</p>
+                </div>
+                <div class="info-card">
+                    <h3>당첨금 수령</h3>
+                    <p>추첨일로부터 1년 이내</p>
+                </div>
+            </div>
+            <p class="more-link">더 자세한 정보는 <a href="guide.html">로또 완벽 가이드</a>에서 확인하세요.</p>
+        </section>
+    </div>
+
+    <div class="ad-container">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-3569090196286004"
+             data-ad-slot="auto"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <div class="container" id="contact">
+        <h2>제휴 문의</h2>
+        <p class="subtitle">비즈니스 제휴, 광고, 협업 등 문의 사항을 남겨주세요.</p>
+        <form action="https://formspree.io/f/maqlewnd" method="POST" class="contact-form">
+            <input type="text" name="name" placeholder="이름 / 회사명" required>
+            <input type="email" name="email" placeholder="이메일" required>
+            <textarea name="message" placeholder="문의 내용을 입력해주세요" rows="4" required></textarea>
+            <button type="submit" class="submit-btn">문의 보내기</button>
+        </form>
+    </div>
+
     <div class="container" id="disqus-section">
         <h2>댓글</h2>
+        <p class="subtitle">번호를 공유하거나 의견을 남겨주세요!</p>
         <div id="disqus_thread"></div>
     </div>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="index.html">홈</a>
+                <a href="guide.html">로또 가이드</a>
+                <a href="about.html">소개</a>
+                <a href="privacy.html">개인정보처리방침</a>
+            </div>
+            <p class="footer-copy">&copy; 2026 LottoGen. All rights reserved.</p>
+        </div>
+    </footer>
 
     <script>
         var disqus_config = function () {
