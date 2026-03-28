@@ -4,7 +4,21 @@
     --secondary-color: #2c3e50;
     --background-color: #f0f0f0;
     --text-color: #333;
-    --white: #fff;
+    --card-bg: #fff;
+    --btn-hover: #34495e;
+    --shadow: rgba(0, 0, 0, 0.1);
+    --shadow-strong: rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] {
+    --primary-color: #f1c40f;
+    --secondary-color: #ecf0f1;
+    --background-color: #1a1a2e;
+    --text-color: #e0e0e0;
+    --card-bg: #16213e;
+    --btn-hover: #0f3460;
+    --shadow: rgba(0, 0, 0, 0.3);
+    --shadow-strong: rgba(0, 0, 0, 0.4);
 }
 
 body {
@@ -16,13 +30,35 @@ body {
     height: 100vh;
     margin: 0;
     font-family: 'Arial', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--card-bg);
+    border: 2px solid var(--secondary-color);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px var(--shadow-strong);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    z-index: 100;
+}
+
+#theme-toggle:hover {
+    transform: scale(1.1);
 }
 
 .container {
-    background-color: var(--white);
+    background-color: var(--card-bg);
     padding: 40px;
     border-radius: 20px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 20px var(--shadow), 0 6px 6px var(--shadow);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
 }
 
@@ -39,7 +75,7 @@ h1 {
 
 .number {
     background-color: var(--primary-color);
-    color: var(--white);
+    color: #fff;
     border-radius: 50%;
     width: 60px;
     height: 60px;
@@ -49,7 +85,7 @@ h1 {
     margin: 0 10px;
     font-size: 24px;
     font-weight: bold;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px var(--shadow-strong);
     transition: transform 0.3s ease;
 }
 
@@ -59,18 +95,18 @@ h1 {
 
 #generate {
     background-color: var(--secondary-color);
-    color: var(--white);
+    color: #fff;
     border: none;
     padding: 15px 30px;
     border-radius: 10px;
     cursor: pointer;
     font-size: 18px;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px var(--shadow-strong);
 }
 
 #generate:hover {
-    background-color: #34495e;
+    background-color: var(--btn-hover);
     transform: translateY(-2px);
 }
 
