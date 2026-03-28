@@ -1,1 +1,79 @@
-/* Add styles here */
+
+:root {
+    --primary-color: #f39c12;
+    --secondary-color: #2c3e50;
+    --background-color: #f0f0f0;
+    --text-color: #333;
+    --white: #fff;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    background-color: var(--white);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    color: var(--secondary-color);
+    margin-bottom: 30px;
+}
+
+.lotto-numbers {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.number {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+    font-size: 24px;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.number:hover {
+    transform: translateY(-5px);
+}
+
+#generate {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    border: none;
+    padding: 15px 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#generate:hover {
+    background-color: #34495e;
+    transform: translateY(-2px);
+}
+
+#generate:active {
+    transform: translateY(1px);
+}
